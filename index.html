@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ペットメモリアルサービス｜吉地亜木子</title>
+  <title>ペットメモリアル そら｜吉地亜木子</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
 
@@ -774,6 +774,120 @@
       color: var(--text-light);
     }
 
+    /* ========== STAFF ========== */
+    .staff-section {
+      background: #fff;
+    }
+
+    .staff-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .staff-card {
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .staff-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      flex-shrink: 0;
+      width: 380px;
+    }
+
+    .staff-photos img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .staff-photos img:hover { transform: scale(1.02); }
+
+    .staff-photos img:first-child {
+      grid-column: 1 / -1;
+      aspect-ratio: 4/3;
+    }
+
+    .staff-info {
+      flex: 1;
+      padding-top: 10px;
+    }
+
+    .staff-name-ruby {
+      font-size: 13px;
+      color: var(--orange-main);
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+    }
+
+    .staff-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .staff-name-en {
+      font-size: 14px;
+      color: var(--orange-light);
+      letter-spacing: 0.2em;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .staff-quals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .staff-qual-tag {
+      background: var(--orange-pale);
+      border: 1px solid var(--orange-light);
+      color: var(--orange-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+
+    .staff-bio {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 2;
+      margin-bottom: 28px;
+    }
+
+    .staff-area-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--text-dark);
+      color: #fff;
+      font-size: 13px;
+      padding: 8px 20px;
+      border-radius: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .staff-card {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .staff-photos {
+        width: 100%;
+      }
+    }
+
     /* ========== PRODUCTS ========== */
     .products-section {
       background: var(--orange-pale);
@@ -1019,13 +1133,14 @@
     <div class="header-logo">
       <span class="paw">🐾</span>
       <div class="site-name">
-        <span>PET MEMORIAL SERVICE</span>
+        <span>ペットメモリアル そら</span>
         吉地 亜木子
       </div>
     </div>
     <nav>
       <a href="#services">サービス</a>
       <a href="#pricing">料金</a>
+      <a href="#staff">スタッフ</a>
       <a href="#products">グッズ</a>
       <a href="#voices">お客様の声</a>
       <a href="#faq">Q&amp;A</a>
@@ -1039,7 +1154,7 @@
   <section class="hero">
     <div class="hero-content">
       <p class="hero-catch">大切な家族のために、心を込めて。</p>
-      <p class="hero-sub">Pet Memorial Service</p>
+      <p class="hero-sub">ペットメモリアル そら</p>
 
       <!-- ペットシルエット（SVG） -->
       <div class="hero-pets">
@@ -1619,6 +1734,42 @@
     </div>
   </section>
 
+  <!-- STAFF -->
+  <section class="staff-section" id="staff">
+    <div class="section-header fade-in">
+      <p class="section-label">Staff</p>
+      <h2 class="section-title">スタッフ紹介</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="staff-inner">
+      <div class="staff-card fade-in">
+        <div class="staff-photos">
+          <img src="staff2.jpg.jpeg" alt="吉地亜木子">
+          <img src="staff1.jpg.jpeg" alt="吉地亜木子">
+          <img src="staff3.jpg.jpeg" alt="吉地亜木子">
+        </div>
+        <div class="staff-info">
+          <p class="staff-name-ruby">よしじ　あきこ</p>
+          <h3 class="staff-name">吉地 亜木子</h3>
+          <p class="staff-name-en">Akiko Yoshiji 🐾</p>
+          <div class="staff-quals">
+            <span class="staff-qual-tag">🐾 火葬技術管理士１級</span>
+            <span class="staff-qual-tag">🐾 動物葬祭ディレクター１級</span>
+            <span class="staff-qual-tag">🐾 愛玩動物飼養管理士１級</span>
+          </div>
+          <p class="staff-bio">
+            大切なペットを家族の一員として、最期の時間を心を込めてお手伝いします。<br><br>
+            動物が大好きで、一頭一頭の個性や、ご家族の想いに寄り添いながら、
+            「その子らしいお見送り」ができるよう、真心を持って対応しています。<br><br>
+            お葬儀のことだけでなく、日常の飼育相談や動物関係の法律まで、
+            どんな小さなことでもお気軽にご相談ください。
+          </p>
+          <span class="staff-area-tag">📍 神戸市／阪神エリアを中心に対応</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CLOSING QUOTE -->
   <div class="closing-section">
     <span class="paw-deco" style="top:-20px;left:5%;">🐾</span>
@@ -1688,10 +1839,10 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-name">🐾 吉地 亜木子 Pet Memorial Service</div>
+    <div class="footer-name">🐾 ペットメモリアル そら｜吉地 亜木子</div>
     <div>神戸市／阪神エリアを中心に対応</div>
     <div>📞 090-7899-0287 ✉️ aki07511@gmail.com</div>
-    <div class="footer-copy">© 2025 Akiko Yoshiji Pet Memorial Service. All Rights Reserved.</div>
+    <div class="footer-copy">© 2025 ペットメモリアル そら. All Rights Reserved.</div>
   </footer>
 
   <!-- FLOATING CONTACT BUTTONS -->
