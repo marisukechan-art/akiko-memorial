@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ペットメモリアル そら｜吉地亜木子</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+    :root {
+      --orange-main: #E8834A;
+      --orange-light: #F5A96B;
+      --orange-pale: #FDF3EB;
+      --orange-dark: #C96830;
+      --brown: #8B5E3C;
+      --cream: #FFF8F2;
+      --text-dark: #3D2B1F;
+      --text-mid: #6B4C3B;
+      --text-light: #A07060;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 248, 242, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(232, 131, 74, 0.2);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-logo .paw {
+      font-size: 22px;
+      color: var(--orange-main);
+    }
+
+    .header-logo .site-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+
+    .header-logo .site-name span {
+      display: block;
+      font-size: 11px;
+      color: var(--orange-main);
+      letter-spacing: 0.1em;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--text-mid);
+      letter-spacing: 0.05em;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--orange-main);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    nav a:hover { color: var(--orange-main); }
+    nav a:hover::after { transform: scaleX(1); }
+
+    .header-tel {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--orange-dark);
+      letter-spacing: 0.05em;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #FFF3E8 0%, #FDDDB8 40%, #F5C98A 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 70px;
+    }
+
+    /* 虹の装飾 */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 200deg,
+        transparent 0deg,
+        rgba(255,180,180,0.3) 20deg,
+        rgba(255,220,100,0.3) 40deg,
+        rgba(180,230,180,0.3) 60deg,
+        rgba(150,200,255,0.3) 80deg,
+        transparent 100deg
+      );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 60px 40px;
+    }
+
+    .hero-catch {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 500;
+      color: var(--orange-dark);
+      line-height: 1.6;
+      margin-bottom: 12px;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.8);
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--text-light);
+      text-transform: uppercase;
+      margin-bottom: 50px;
+    }
+
+    /* ペットシルエット SVG */
+    .hero-pets {
+      margin: 30px auto;
+      width: 320px;
+      opacity: 0.9;
+    }
+
+    .hero-name-block {
+      margin-top: 30px;
+    }
+
+    .hero-name-jp {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.05em;
+      line-height: 1;
+    }
+
+    .hero-name-en {
+      font-size: 16px;
+      color: var(--orange-light);
+      letter-spacing: 0.2em;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .hero-tagline {
+      margin-top: 30px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .hero-cta {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange-main);
+      color: #fff;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(232, 131, 74, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(232, 131, 74, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--orange-dark);
+      border: 2px solid var(--orange-main);
+      padding: 14px 38px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--orange-pale);
+      transform: translateY(-2px);
+    }
+
+    /* ========== SECTION BASE ========== */
+    section {
+      padding: 90px 40px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: var(--orange-main);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    .section-desc {
+      margin-top: 16px;
+      color: var(--text-mid);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .divider {
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange-light), var(--orange-main));
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    /* ========== MESSAGE ========== */
+    .message-section {
+      background: #fff;
+    }
+
+    .message-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .message-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 2.2;
+      color: var(--text-mid);
+    }
+
+    .message-highlight {
+      color: var(--orange-dark);
+      font-weight: 700;
+    }
+
+    /* ========== SERVICES ========== */
+    .services-section {
+      background: var(--orange-pale);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(232, 131, 74, 0.1);
+      transition: all 0.3s;
+      border-top: 4px solid var(--orange-light);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 30px rgba(232, 131, 74, 0.2);
+    }
+
+    .service-icon {
+      font-size: 44px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--orange-dark);
+      margin-bottom: 14px;
+    }
+
+    .service-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    /* ========== QUALIFICATIONS ========== */
+    .qual-section {
+      background: #fff;
+    }
+
+    .qual-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .qual-badge {
+      background: linear-gradient(135deg, var(--orange-pale), #FFF);
+      border: 2px solid var(--orange-light);
+      border-radius: 14px;
+      padding: 20px 32px;
+      text-align: center;
+      min-width: 250px;
+      transition: all 0.3s;
+    }
+
+    .qual-badge:hover {
+      border-color: var(--orange-main);
+      box-shadow: 0 4px 15px rgba(232, 131, 74, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .qual-badge .paw-icon {
+      color: var(--orange-main);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .qual-badge .qual-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .qual-badge .qual-level {
+      font-size: 13px;
+      color: var(--orange-main);
+      margin-top: 4px;
+    }
+
+    /* ========== AREA ========== */
+    .area-section {
+      background: linear-gradient(135deg, #FFF3E5 0%, #FFE4C4 100%);
+    }
+
+    .area-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .area-main {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 700;
+      color: var(--orange-dark);
+      margin-bottom: 12px;
+    }
+
+    .area-note {
+      font-size: 14px;
+      color: var(--text-light);
+      background: rgba(255,255,255,0.6);
+      border-radius: 50px;
+      padding: 8px 24px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact-section {
+      background: var(--text-dark);
+      color: #fff;
+    }
+
+    .contact-section .section-label { color: var(--orange-light); }
+    .contact-section .section-title { color: #fff; }
+    .contact-section .divider { background: linear-gradient(90deg, var(--orange-light), var(--orange-main)); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto 40px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 32px 28px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .contact-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-3px);
+    }
+
+    .contact-card .contact-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .contact-card .contact-label {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--orange-light);
+      margin-bottom: 10px;
+    }
+
+    .contact-card .contact-value {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #fff;
+    }
+
+    .contact-card .contact-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .contact-cta {
+      text-align: center;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #2A1A0F;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 30px 40px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    footer .footer-name {
+      color: var(--orange-light);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    footer .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 12px;
+    }
+
+    /* ========== FLOATING CONTACT ========== */
+    .float-contact {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+
+    .float-btn {
+      background: var(--orange-main);
+      color: #fff;
+      border-radius: 50px;
+      padding: 14px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 20px rgba(232,131,74,0.5);
+      transition: all 0.3s;
+    }
+
+    .float-btn:hover {
+      background: var(--orange-dark);
+      transform: scale(1.05);
+    }
+
+    .float-btn.line {
+      background: #06C755;
+      box-shadow: 0 4px 20px rgba(6,199,85,0.4);
+    }
+
+    .float-btn.line:hover { background: #059844; }
+
+    /* ========== CLOSING QUOTE ========== */
+    .closing-section {
+      background: linear-gradient(160deg, #FFF3E5 0%, #FFE0B0 100%);
+      text-align: center;
+      padding: 80px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing-quote {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 3.5vw, 32px);
+      color: var(--orange-dark);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    /* 肉球装飾 */
+    .paw-deco {
+      position: absolute;
+      opacity: 0.06;
+      font-size: 80px;
+      pointer-events: none;
+    }
+
+    /* ========== PRICING ========== */
+    .pricing-section {
+      background: #fff;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto 40px;
+    }
+
+    .price-card {
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      border: 2px solid var(--orange-light);
+      position: relative;
+      transition: all 0.3s;
+      background: #fff;
+    }
+
+    .price-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(232,131,74,0.15);
+      border-color: var(--orange-main);
+    }
+
+    .price-card.featured {
+      background: linear-gradient(160deg, var(--orange-pale), #fff);
+      border-color: var(--orange-main);
+      box-shadow: 0 8px 30px rgba(232,131,74,0.2);
+    }
+
+    .price-card .badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--orange-main);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 20px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .price-card .plan-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .price-card .plan-price {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .price-card .plan-price strong {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--orange-dark);
+      display: block;
+      line-height: 1.1;
+    }
+
+    .price-card .plan-price small {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .price-card .plan-features {
+      list-style: none;
+      text-align: left;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2;
+      border-top: 1px solid rgba(232,131,74,0.2);
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
+    .price-card .plan-features li::before {
+      content: '🐾 ';
+      font-size: 12px;
+    }
+
+    .price-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+      background: var(--orange-pale);
+      border-radius: 12px;
+      padding: 16px 24px;
+    }
+
+    /* ========== PRICE TABLE ========== */
+    .price-table-wrap {
+      max-width: 1100px;
+      margin: 50px auto 30px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .price-table-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      font-size: 14px;
+    }
+
+    .price-table th {
+      padding: 14px 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .price-table th.col-size { background: #f0ebe5; color: var(--text-dark); }
+    .price-table th.col-type { background: #f0ebe5; color: var(--text-dark); }
+    .price-table th.col-godo1 { background: #F5C98A; color: var(--text-dark); }
+    .price-table th.col-godo2 { background: #F5A96B; color: var(--text-dark); }
+    .price-table th.col-ichinin { background: #A8D8B0; color: #2a5c35; }
+    .price-table th.col-tatiai { background: #A8C8E8; color: #1a3c5c; }
+
+    .price-table td {
+      padding: 12px 14px;
+      text-align: center;
+      border-bottom: 1px solid #f0e8e0;
+      vertical-align: middle;
+    }
+
+    .price-table td.td-size {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-dark);
+      white-space: nowrap;
+      background: #faf6f2;
+    }
+
+    .price-table td.td-type {
+      font-size: 12px;
+      color: var(--text-mid);
+      text-align: left;
+      background: #faf6f2;
+    }
+
+    .price-table tr:nth-child(even) td.td-size,
+    .price-table tr:nth-child(even) td.td-type { background: #f5f0eb; }
+
+    .price-table tr:hover td { background: #fff3e8 !important; }
+
+    .price-table .price-main {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--orange-dark);
+      display: block;
+    }
+
+    .price-table .price-tax {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* ========== STAFF ========== */
+    .staff-section {
+      background: #fff;
+    }
+
+    .staff-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .staff-card {
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .staff-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      flex-shrink: 0;
+      width: 380px;
+    }
+
+    .staff-photos img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .staff-photos img:hover { transform: scale(1.02); }
+
+    .staff-photos img:first-child {
+      grid-column: 1 / -1;
+      aspect-ratio: 4/3;
+    }
+
+    .staff-info {
+      flex: 1;
+      padding-top: 10px;
+    }
+
+    .staff-name-ruby {
+      font-size: 13px;
+      color: var(--orange-main);
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+    }
+
+    .staff-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .staff-name-en {
+      font-size: 14px;
+      color: var(--orange-light);
+      letter-spacing: 0.2em;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .staff-quals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .staff-qual-tag {
+      background: var(--orange-pale);
+      border: 1px solid var(--orange-light);
+      color: var(--orange-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+
+    .staff-bio {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 2;
+      margin-bottom: 28px;
+    }
+
+    .staff-area-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--text-dark);
+      color: #fff;
+      font-size: 13px;
+      padding: 8px 20px;
+      border-radius: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .staff-card {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .staff-photos {
+        width: 100%;
+      }
+    }
+
+    /* ========== PRODUCTS ========== */
+    .products-section {
+      background: var(--orange-pale);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(232,131,74,0.08);
+      transition: all 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(232,131,74,0.18);
+    }
+
+    .product-card .product-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .product-card .product-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .product-card .product-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--orange-dark);
+    }
+
+    .product-card .product-desc {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* ========== VOICES ========== */
+    .voices-section {
+      background: #fff;
+    }
+
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .voice-card {
+      background: var(--orange-pale);
+      border-radius: 20px;
+      padding: 32px 28px;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .voice-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(232,131,74,0.15);
+    }
+
+    .voice-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      font-size: 60px;
+      color: var(--orange-light);
+      font-family: Georgia, serif;
+      line-height: 1;
+      opacity: 0.5;
+    }
+
+    .voice-card .voice-text {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .voice-card .voice-meta {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .voice-card .voice-pet {
+      background: var(--orange-main);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 50px;
+    }
+
+    .voice-card .voice-from {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .voice-card .stars {
+      color: var(--orange-main);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    /* ========== FAQ ========== */
+    .faq-section {
+      background: linear-gradient(160deg, var(--orange-pale) 0%, #fff 100%);
+    }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(232,131,74,0.25);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow 0.3s;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 15px rgba(232,131,74,0.15);
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 24px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .faq-q .q-icon {
+      background: var(--orange-main);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .faq-q .q-text {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-dark);
+      flex: 1;
+    }
+
+    .faq-q .q-arrow {
+      color: var(--orange-main);
+      font-size: 18px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .q-arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-a {
+      display: none;
+      padding: 0 24px 20px 66px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      border-top: 1px solid rgba(232,131,74,0.15);
+      padding-top: 16px;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      header {
+        padding: 0 20px;
+        height: 60px;
+      }
+
+      nav { display: none; }
+
+      .header-tel { font-size: 14px; }
+
+      section { padding: 70px 20px; }
+
+      .hero-content { padding: 40px 20px; }
+
+      .float-contact { bottom: 20px; right: 16px; }
+
+      .float-btn { padding: 12px 18px; font-size: 13px; }
+    }
+
+    /* ========== SCROLL ANIMATION ========== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-logo">
+      <span class="paw">🐾</span>
+      <div class="site-name">
+        <span>ペットメモリアル そら</span>
+        吉地 亜木子
+      </div>
+    </div>
+    <nav>
+      <a href="#services">サービス</a>
+      <a href="#pricing">料金</a>
+      <a href="#staff">スタッフ</a>
+      <a href="#products">グッズ</a>
+      <a href="#voices">お客様の声</a>
+      <a href="#faq">Q&amp;A</a>
+      <a href="#area">対応エリア</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <div class="header-tel">📞 090-7899-0287</div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-catch">大切な家族のために、心を込めて。</p>
+      <p class="hero-sub">ペットメモリアル そら</p>
+
+      <!-- ペットシルエット（SVG） -->
+      <div class="hero-pets">
+        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- 犬シルエット -->
+          <g fill="#E8834A" opacity="0.85">
+            <!-- 体 -->
+            <ellipse cx="180" cy="130" rx="55" ry="40"/>
+            <!-- 頭 -->
+            <circle cx="220" cy="88" r="30"/>
+            <!-- 耳左 -->
+            <ellipse cx="205" cy="65" rx="12" ry="18" transform="rotate(-15 205 65)"/>
+            <!-- 耳右 -->
+            <ellipse cx="235" cy="63" rx="10" ry="16" transform="rotate(10 235 63)"/>
+            <!-- 前足 -->
+            <rect x="148" y="155" width="16" height="25" rx="8"/>
+            <rect x="172" y="158" width="16" height="22" rx="8"/>
+            <!-- 後足 -->
+            <rect x="200" y="158" width="16" height="22" rx="8"/>
+            <rect x="220" y="155" width="16" height="25" rx="8"/>
+            <!-- 尻尾 -->
+            <path d="M235 120 Q265 95 255 80" stroke="#E8834A" stroke-width="12" fill="none" stroke-linecap="round"/>
+          </g>
+          <!-- 猫シルエット -->
+          <g fill="#F5A96B" opacity="0.9">
+            <!-- 体 -->
+            <ellipse cx="95" cy="135" rx="38" ry="32"/>
+            <!-- 頭 -->
+            <circle cx="112" cy="95" r="22"/>
+            <!-- 耳左 -->
+            <polygon points="95,78 88,58 108,72"/>
+            <!-- 耳右 -->
+            <polygon points="120,76 128,57 133,72"/>
+            <!-- 前足 -->
+            <rect x="72" y="157" width="12" height="22" rx="6"/>
+            <rect x="90" y="160" width="12" height="19" rx="6"/>
+            <!-- 後足 -->
+            <rect x="108" y="160" width="12" height="19" rx="6"/>
+            <rect x="124" y="157" width="12" height="22" rx="6"/>
+            <!-- 尻尾 -->
+            <path d="M57 145 Q40 110 55 90 Q60 82 65 90" stroke="#F5A96B" stroke-width="10" fill="none" stroke-linecap="round"/>
+          </g>
+          <!-- 肉球アイコン -->
+          <g fill="#C96830" opacity="0.5">
+            <circle cx="30" cy="30" r="8"/>
+            <circle cx="18" cy="20" r="5"/>
+            <circle cx="30" cy="16" r="5"/>
+            <circle cx="42" cy="20" r="5"/>
+          </g>
+          <!-- 虹 -->
+          <path d="M10 170 Q80 60 160 170" stroke="#FF9999" stroke-width="4" fill="none" opacity="0.4"/>
+          <path d="M10 170 Q80 75 160 170" stroke="#FFD080" stroke-width="4" fill="none" opacity="0.4"/>
+          <path d="M10 170 Q80 90 160 170" stroke="#A0D8A0" stroke-width="4" fill="none" opacity="0.4"/>
+        </svg>
+      </div>
+
+      <div class="hero-name-block fade-in">
+        <p class="hero-sub" style="font-size:11px;margin-bottom:4px;">よしじ　あきこ</p>
+        <h1 class="hero-name-jp">吉地 亜木子</h1>
+        <p class="hero-name-en">Akiko Yoshiji 🐾</p>
+      </div>
+
+      <p class="hero-tagline fade-in">
+        大切な家族との最期の時間を、<br>心を込めてお手伝いします。
+      </p>
+
+      <div class="hero-cta fade-in">
+        <a href="tel:090-7899-0287" class="btn-primary">📞 今すぐ電話する</a>
+        <a href="#contact" class="btn-secondary">🐾 ご相談はこちら</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESSAGE -->
+  <section class="message-section" id="about">
+    <div class="message-inner fade-in">
+      <div class="section-header">
+        <p class="section-label">Message</p>
+        <h2 class="section-title">大切な命に、寄り添います。</h2>
+        <div class="divider"></div>
+      </div>
+      <p class="message-text">
+        ペットは家族です。<br>
+        その<span class="message-highlight">最期の時間</span>を、できる限り穏やかに、<br>
+        そしてその子らしく送り出してあげたい。<br><br>
+        お葬儀から日常の飼育相談まで、<br>
+        <span class="message-highlight">神戸市・阪神エリアを中心</span>に、<br>
+        一つひとつの命と真摯に向き合いながら<br>
+        丁寧にサポートいたします。<br><br>
+        どうぞお気軽にご相談ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="section-header fade-in">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">ご相談内容</h2>
+      <div class="divider"></div>
+      <p class="section-desc">お葬儀から日常の飼育相談まで、幅広くご対応いたします。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <span class="service-icon">🔥</span>
+        <h3 class="service-title">ペット葬儀・火葬</h3>
+        <p class="service-desc">
+          ご家族の想いに寄り添い、<br>
+          その子らしいお見送りを<br>
+          丁寧にお手伝いします。
+        </p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">🪷</span>
+        <h3 class="service-title">供養のご相談</h3>
+        <p class="service-desc">
+          供養方法・納骨・手元養など、<br>
+          最適な形での供養について<br>
+          お気軽にご相談ください。
+        </p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">🏡</span>
+        <h3 class="service-title">日常の飼育相談</h3>
+        <p class="service-desc">
+          飼育方法・しつけ・健康管理など、<br>
+          日々のお世話に関する<br>
+          安心のサポートをいたします。
+        </p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">📋</span>
+        <h3 class="service-title">動物関係法令</h3>
+        <p class="service-desc">
+          動物愛護管理法、<br>
+          ペットフード安全法等について<br>
+          お気軽にご相談ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALIFICATIONS -->
+  <section class="qual-section" id="qualifications">
+    <div class="section-header fade-in">
+      <p class="section-label">Qualifications</p>
+      <h2 class="section-title">保有資格</h2>
+      <div class="divider"></div>
+      <p class="section-desc">専門資格を持つプロが、責任を持ってサポートします。</p>
+    </div>
+    <div class="qual-list">
+      <div class="qual-badge fade-in">
+        <div class="paw-icon">🐾</div>
+        <div class="qual-name">火葬技術管理士</div>
+        <div class="qual-level">１級</div>
+      </div>
+      <div class="qual-badge fade-in">
+        <div class="paw-icon">🐾</div>
+        <div class="qual-name">動物葬祭ディレクター</div>
+        <div class="qual-level">１級</div>
+      </div>
+      <div class="qual-badge fade-in">
+        <div class="paw-icon">🐾</div>
+        <div class="qual-name">愛玩動物飼養管理士</div>
+        <div class="qual-level">１級</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-header fade-in">
+      <p class="section-label">Price</p>
+      <h2 class="section-title">料金プラン</h2>
+      <div class="divider"></div>
+      <p class="section-desc">大切な家族のために、適切なお見送りをお選びください。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card fade-in">
+        <div class="plan-name">合同火葬プラン</div>
+        <div class="plan-price">
+          <strong>お気軽に<br><span style="font-size:16px;">ご相談ください</span></strong>
+        </div>
+        <ul class="plan-features">
+          <li>他のペットと合同で火葬</li>
+          <li>ご遺骨のお返しなし</li>
+          <li>共同墓地への埋葬</li>
+          <li>15kg以下のペット対象</li>
+        </ul>
+      </div>
+      <div class="price-card fade-in">
+        <div class="plan-name">一任火葬プラン</div>
+        <div class="plan-price">
+          <strong>お気軽に<br><span style="font-size:16px;">ご相談ください</span></strong>
+        </div>
+        <ul class="plan-features">
+          <li>スタッフにお任せ火葬</li>
+          <li>骨壷でのご返骨</li>
+          <li>立ち会いなし</li>
+          <li>ご自宅でのお預かり対応</li>
+        </ul>
+      </div>
+      <div class="price-card featured fade-in">
+        <div class="badge">おすすめ</div>
+        <div class="plan-name">立会い火葬プラン</div>
+        <div class="plan-price">
+          <strong>お気軽に<br><span style="font-size:16px;">ご相談ください</span></strong>
+        </div>
+        <ul class="plan-features">
+          <li>最後まで見届けられる</li>
+          <li>炉前でのご収骨</li>
+          <li>ご遺骨をお持ち帰り</li>
+          <li>ご家族様の立ち会い可能</li>
+        </ul>
+      </div>
+      <div class="price-card fade-in">
+        <div class="plan-name">プレミアムプラン</div>
+        <div class="plan-price">
+          <strong>¥99,000</strong>
+          <small>（税込）</small>
+        </div>
+        <ul class="plan-features">
+          <li>祭壇生花・読経</li>
+          <li>棺レンタル・位牌</li>
+          <li>専用布団・線香・ローソク</li>
+          <li>立会い火葬・納骨堂使用料込み</li>
+        </ul>
+      </div>
+    </div>
+    <!-- 体重別料金表 -->
+    <div class="price-table-wrap fade-in">
+      <p class="price-table-title">🐾 体重別料金表（税抜・税込）</p>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th class="col-size">大きさ</th>
+            <th class="col-type">ペットの種類（目安）</th>
+            <th class="col-godo1">合同火葬<br>（持ち込み）</th>
+            <th class="col-godo2">合同火葬<br>（お引き取り）</th>
+            <th class="col-ichinin">一任火葬<br>（スタッフお骨拾い）</th>
+            <th class="col-tatiai">立会い火葬<br>（お客様お骨拾い）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-size">小動物</td>
+            <td class="td-type">小鳥、ハムスター、トカゲ、チンチラ、モルモット、カエル等</td>
+            <td><span class="price-main">4,000円</span><span class="price-tax">税込 4,400円</span></td>
+            <td><span class="price-main">6,000円</span><span class="price-tax">税込 6,600円</span></td>
+            <td><span class="price-main">13,000円</span><span class="price-tax">税込 14,300円</span></td>
+            <td><span class="price-main">16,000円</span><span class="price-tax">税込 17,600円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">1kg〜3kg</td>
+            <td class="td-type">うさぎ、フェレット、小型猫 等</td>
+            <td><span class="price-main">4,000円</span><span class="price-tax">税込 4,400円</span></td>
+            <td><span class="price-main">6,000円</span><span class="price-tax">税込 6,600円</span></td>
+            <td><span class="price-main">19,000円</span><span class="price-tax">税込 20,900円</span></td>
+            <td><span class="price-main">23,000円</span><span class="price-tax">税込 25,300円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">5kgまで</td>
+            <td class="td-type">猫、チワワ、トイプードル、ポメラニアン 等</td>
+            <td><span class="price-main">4,000円</span><span class="price-tax">税込 4,400円</span></td>
+            <td><span class="price-main">6,000円</span><span class="price-tax">税込 6,600円</span></td>
+            <td><span class="price-main">26,000円</span><span class="price-tax">税込 28,600円</span></td>
+            <td><span class="price-main">30,000円</span><span class="price-tax">税込 33,000円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">10kgまで</td>
+            <td class="td-type">ミニチュアダックス、シーズー、パグ 等</td>
+            <td><span class="price-main">9,000円</span><span class="price-tax">税込 9,900円</span></td>
+            <td><span class="price-main">12,000円</span><span class="price-tax">税込 13,200円</span></td>
+            <td><span class="price-main">29,000円</span><span class="price-tax">税込 31,900円</span></td>
+            <td><span class="price-main">32,000円</span><span class="price-tax">税込 35,200円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">15kgまで</td>
+            <td class="td-type">柴犬、ビーグル、キャバリア 等</td>
+            <td><span class="price-main">16,000円</span><span class="price-tax">税込 17,600円</span></td>
+            <td><span class="price-main">19,000円</span><span class="price-tax">税込 20,900円</span></td>
+            <td><span class="price-main">32,000円</span><span class="price-tax">税込 35,200円</span></td>
+            <td><span class="price-main">36,000円</span><span class="price-tax">税込 39,600円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">20kgまで</td>
+            <td class="td-type">コーギー、紀州犬、ボーダーコリー 等</td>
+            <td><span class="price-main">32,000円</span><span class="price-tax">税込 35,200円</span></td>
+            <td><span class="price-main">35,000円</span><span class="price-tax">税込 38,500円</span></td>
+            <td><span class="price-main">35,000円</span><span class="price-tax">税込 38,500円</span></td>
+            <td><span class="price-main">40,000円</span><span class="price-tax">税込 44,000円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">25kgまで</td>
+            <td class="td-type">ブルドッグ、サルーキー 等</td>
+            <td><span class="price-main">35,000円</span><span class="price-tax">税込 38,500円</span></td>
+            <td><span class="price-main">40,000円</span><span class="price-tax">税込 44,000円</span></td>
+            <td><span class="price-main">40,000円</span><span class="price-tax">税込 44,000円</span></td>
+            <td><span class="price-main">45,000円</span><span class="price-tax">税込 49,500円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">30kgまで</td>
+            <td class="td-type">ハスキー、ボクサー 等</td>
+            <td><span class="price-main">40,000円</span><span class="price-tax">税込 44,000円</span></td>
+            <td><span class="price-main">45,000円</span><span class="price-tax">税込 49,500円</span></td>
+            <td><span class="price-main">45,000円</span><span class="price-tax">税込 49,500円</span></td>
+            <td><span class="price-main">50,000円</span><span class="price-tax">税込 55,000円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">35kgまで</td>
+            <td class="td-type">ゴールデンレトリバー、ラブラドール、秋田犬、シベリアンハスキー 等</td>
+            <td><span class="price-main">45,000円</span><span class="price-tax">税込 49,500円</span></td>
+            <td><span class="price-main">50,000円</span><span class="price-tax">税込 55,000円</span></td>
+            <td><span class="price-main">50,000円</span><span class="price-tax">税込 55,000円</span></td>
+            <td><span class="price-main">55,000円</span><span class="price-tax">税込 60,500円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">40kgまで</td>
+            <td class="td-type">ゴールデンレトリバー、ラブラドール、秋田犬、シベリアンハスキー 等</td>
+            <td><span class="price-main">50,000円</span><span class="price-tax">税込 55,000円</span></td>
+            <td><span class="price-main">55,000円</span><span class="price-tax">税込 60,500円</span></td>
+            <td><span class="price-main">55,000円</span><span class="price-tax">税込 60,500円</span></td>
+            <td><span class="price-main">60,000円</span><span class="price-tax">税込 66,000円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">45kgまで</td>
+            <td class="td-type">ゴールデンレトリバー、ラブラドール、秋田犬、シベリアンハスキー 等</td>
+            <td><span class="price-main">55,000円</span><span class="price-tax">税込 60,500円</span></td>
+            <td><span class="price-main">60,000円</span><span class="price-tax">税込 66,000円</span></td>
+            <td><span class="price-main">60,000円</span><span class="price-tax">税込 66,000円</span></td>
+            <td><span class="price-main">65,000円</span><span class="price-tax">税込 71,500円</span></td>
+          </tr>
+          <tr>
+            <td class="td-size">50kgまで</td>
+            <td class="td-type">ゴールデンレトリバー、ラブラドール、秋田犬、シベリアンハスキー 等</td>
+            <td><span class="price-main">60,000円</span><span class="price-tax">税込 66,000円</span></td>
+            <td><span class="price-main">65,000円</span><span class="price-tax">税込 71,500円</span></td>
+            <td><span class="price-main">65,000円</span><span class="price-tax">税込 71,500円</span></td>
+            <td><span class="price-main">70,000円</span><span class="price-tax">税込 77,000円</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="price-note fade-in">
+      ※ 体重50kg以上はお寺での火葬に変更となります。<br>
+      ※ 夜間・早朝は時間外料金が別途発生する場合があります。<br>
+      ※ 詳しい料金はお電話またはメールにてお気軽にお問い合わせください。
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-section" id="products">
+    <div class="section-header fade-in">
+      <p class="section-label">Memorial Items</p>
+      <h2 class="section-title">メモリアルグッズ</h2>
+      <div class="divider"></div>
+      <p class="section-desc">大切な子との思い出をいつまでも手元に。</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card fade-in">
+        <div class="product-icon">🧺</div>
+        <div class="product-name">バスケット棺</div>
+        <div class="product-price">¥7,700〜</div>
+        <div class="product-desc">可愛らしいバスケットで<br>心を込めた最期のお見送り</div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-icon">🫙</div>
+        <div class="product-name">遺骨カプセル</div>
+        <div class="product-price">¥2,200</div>
+        <div class="product-desc">ピンク/ブルー/ブラック/<br>シルバー 全4色</div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-icon">⚱️</div>
+        <div class="product-name">ミニ骨壷「てまり」</div>
+        <div class="product-price">¥6,600</div>
+        <div class="product-desc">全6種類の<br>やさしいデザイン</div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-icon">✨</div>
+        <div class="product-name">クリスタル位牌</div>
+        <div class="product-price">¥11,000〜</div>
+        <div class="product-desc">お名前やお写真を<br>刻める特別な位牌</div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-icon">🐾</div>
+        <div class="product-name">足跡モニュメント</div>
+        <div class="product-price">¥15,000〜</div>
+        <div class="product-desc">写真付き¥17,000<br>写真なし¥15,000</div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-icon">💎</div>
+        <div class="product-name">クリメイションジュエリー</div>
+        <div class="product-price">¥9,500</div>
+        <div class="product-desc">全35種類から<br>お選びいただけます</div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-icon">🪄</div>
+        <div class="product-name">レザー遺毛ケース</div>
+        <div class="product-price">¥3,200〜</div>
+        <div class="product-desc">無地¥3,200<br>刻印タイプ¥4,500</div>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-icon">🏮</div>
+        <div class="product-name">仏具5点セット</div>
+        <div class="product-price">¥6,400〜</div>
+        <div class="product-desc">虹の橋・グラデーション<br>各種デザイン取揃え</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;" class="fade-in">
+      <p style="font-size:14px;color:var(--text-light);">
+        ※ 商品の在庫・詳細はお問い合わせください。
+      </p>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section class="voices-section" id="voices">
+    <div class="section-header fade-in">
+      <p class="section-label">Voices</p>
+      <h2 class="section-title">お客様の声</h2>
+      <div class="divider"></div>
+      <p class="section-desc">大切な家族を見送られたご家族の声をご紹介します。</p>
+    </div>
+    <div class="voices-grid">
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">
+          電話の対応も、葬儀の担当スタッフさんもとても丁寧でありがたかったです。突然のことで何もわからない中、親切に教えていただき安心してお任せできました。
+        </p>
+        <div class="voice-meta">
+          <span class="voice-pet">🐕 犬</span>
+          <span class="voice-from">神戸市 / Sさま</span>
+        </div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">
+          自宅での火葬ができると知り、最期まで我が子のそばで見送ることができました。スタッフの方の心遣いに何度も涙が出ました。本当にありがとうございました。
+        </p>
+        <div class="voice-meta">
+          <span class="voice-pet">🐈 猫</span>
+          <span class="voice-from">西宮市 / Mさま</span>
+        </div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">
+          小さなハムスターでも丁寧に対応してくださり、感謝しています。ご遺骨の説明も丁寧で、大切にしてもらえていると感じました。
+        </p>
+        <div class="voice-meta">
+          <span class="voice-pet">🐹 ハムスター</span>
+          <span class="voice-from">宝塚市 / Kさま</span>
+        </div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">
+          急なことで深夜に連絡したにもかかわらず、すぐに対応していただきました。料金も良心的で、安心してお願いできました。また家族のように接してくださり本当に感謝です。
+        </p>
+        <div class="voice-meta">
+          <span class="voice-pet">🐕 犬</span>
+          <span class="voice-from">阪神エリア / Tさま</span>
+        </div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">
+          セキセイインコを看取りました。小さな子でも変わらず丁寧に扱ってくださり、その子らしいお見送りができました。メモリアルグッズも素敵で、今でも大切にしています。
+        </p>
+        <div class="voice-meta">
+          <span class="voice-pet">🐦 鳥</span>
+          <span class="voice-from">明石市 / Yさま</span>
+        </div>
+      </div>
+      <div class="voice-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="voice-text">
+          日程調整も柔軟にしていただき、家族全員でお見送りができました。スタッフの方の説明がとてもわかりやすく、不安なく最期の時間を過ごせました。
+        </p>
+        <div class="voice-meta">
+          <span class="voice-pet">🐈 猫</span>
+          <span class="voice-from">三田市 / Hさま</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="section-header fade-in">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">よくあるご質問</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-icon">Q</span>
+          <span class="q-text">ペットが亡くなったらまず何をすればいいですか？</span>
+          <span class="q-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          硬直が始まる前に、手足を優しく折り曲げてあげてください。また、腐敗が進まないよう保冷剤や氷で冷やし、涼しい場所に安置してください。その後、できるだけ早くご連絡ください。
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-icon">Q</span>
+          <span class="q-text">どこで火葬するのですか？</span>
+          <span class="q-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          周囲の環境に十分配慮した場所へ移動し、完全個別火葬させていただきます。ご自宅前・敷地前、もしくはご希望の場所での火葬が可能です。
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-icon">Q</span>
+          <span class="q-text">煙やニオイは出ますか？近所への迷惑が心配です。</span>
+          <span class="q-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          煙やニオイはほとんど出ません。無煙無臭でダイオキシンを発生させにくい構造となっておりますので、周囲の方にご迷惑をおかけしません。安心してご利用ください。
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-icon">Q</span>
+          <span class="q-text">深夜・早朝でも対応してもらえますか？</span>
+          <span class="q-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          年中無休で対応しております。通常の受付時間は9時〜18時ですが、時間外も別途料金にてご対応可能です。まずはお気軽にご連絡ください。
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-icon">Q</span>
+          <span class="q-text">火葬にかかる時間はどのくらいですか？</span>
+          <span class="q-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          小動物（ハムスター・小鳥など）は約10分、大型犬は約2時間程度です。ペットの体重・種類によって異なりますので、ご予約時にご確認ください。
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-icon">Q</span>
+          <span class="q-text">どんなペットでも対応できますか？</span>
+          <span class="q-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          小鳥・ハムスターから猫・大型犬まで、皆さまの大切にされてきたペットであれば、心を込めてご対応させていただきます。うさぎ・フェレット・爬虫類などもご相談ください。
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-icon">Q</span>
+          <span class="q-text">一緒に火葬できるものはありますか？</span>
+          <span class="q-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          お花・お手紙・写真・食べ物などは一緒に火葬できます。ただし、金属製品・プラスチック製品・ガラス製品は有害な煙が発生するため不可となります。
+        </div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="q-icon">Q</span>
+          <span class="q-text">クレジットカードは使えますか？</span>
+          <span class="q-arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          各種クレジットカードがご利用いただけます。お支払いの際は暗証番号が必要となります（サインでの決済はできません）。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAFF -->
+  <section class="staff-section" id="staff">
+    <div class="section-header fade-in">
+      <p class="section-label">Staff</p>
+      <h2 class="section-title">スタッフ紹介</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="staff-inner">
+      <div class="staff-card fade-in">
+        <div class="staff-photos">
+          <img src="staff2.jpg.jpeg" alt="吉地亜木子">
+          <img src="staff1.jpg.jpeg" alt="吉地亜木子">
+          <img src="staff3.jpg.jpeg" alt="吉地亜木子">
+        </div>
+        <div class="staff-info">
+          <p class="staff-name-ruby">よしじ　あきこ</p>
+          <h3 class="staff-name">吉地 亜木子</h3>
+          <p class="staff-name-en">Akiko Yoshiji 🐾</p>
+          <div class="staff-quals">
+            <span class="staff-qual-tag">🐾 火葬技術管理士１級</span>
+            <span class="staff-qual-tag">🐾 動物葬祭ディレクター１級</span>
+            <span class="staff-qual-tag">🐾 愛玩動物飼養管理士１級</span>
+          </div>
+          <p class="staff-bio">
+            大切なペットを家族の一員として、最期の時間を心を込めてお手伝いします。<br><br>
+            動物が大好きで、一頭一頭の個性や、ご家族の想いに寄り添いながら、
+            「その子らしいお見送り」ができるよう、真心を持って対応しています。<br><br>
+            お葬儀のことだけでなく、日常の飼育相談や動物関係の法律まで、
+            どんな小さなことでもお気軽にご相談ください。
+          </p>
+          <span class="staff-area-tag">📍 神戸市／阪神エリアを中心に対応</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING QUOTE -->
+  <div class="closing-section">
+    <span class="paw-deco" style="top:-20px;left:5%;">🐾</span>
+    <span class="paw-deco" style="bottom:-20px;right:8%;">🐾</span>
+    <p class="closing-quote fade-in">
+      「その子らしいお見送りを、真心を込めて。」
+    </p>
+  </div>
+
+  <!-- AREA -->
+  <section class="area-section" id="area">
+    <div class="area-inner fade-in">
+      <div class="section-header">
+        <p class="section-label">Service Area</p>
+        <h2 class="section-title">対応エリア</h2>
+        <div class="divider"></div>
+      </div>
+      <p class="area-main">神戸市／阪神エリアを中心に対応</p>
+      <p class="section-desc">
+        上記エリア以外もお気軽にご相談ください。<br>
+        できる限り対応いたします。
+      </p>
+      <span class="area-note">※その他の地域もご相談ください</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-header fade-in">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">お問い合わせ</h2>
+      <div class="divider"></div>
+      <p class="section-desc" style="color:rgba(255,255,255,0.6);">
+        まずはお気軽にご連絡ください。
+      </p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card fade-in">
+        <div class="contact-icon">📞</div>
+        <div class="contact-label">PHONE</div>
+        <a href="tel:090-7899-0287" style="text-decoration:none;">
+          <div class="contact-value">090-7899-0287</div>
+        </a>
+        <div class="contact-note">お電話でのご相談はこちら</div>
+      </div>
+      <div class="contact-card fade-in">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-label">EMAIL</div>
+        <a href="mailto:aki07511@gmail.com" style="text-decoration:none;">
+          <div class="contact-value" style="font-size:15px;">aki07511@gmail.com</div>
+        </a>
+        <div class="contact-note">メールでのお問い合わせも受付中</div>
+      </div>
+      <div class="contact-card fade-in">
+        <div class="contact-icon">💬</div>
+        <div class="contact-label">LINE</div>
+        <div class="contact-value" style="font-size:16px;">LINEでお気軽に</div>
+        <div class="contact-note">QRコードからお友だち追加<br>いつでも気軽にご相談ください</div>
+      </div>
+    </div>
+    <div class="contact-cta fade-in">
+      <a href="tel:090-7899-0287" class="btn-primary">
+        📞 今すぐ電話する
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">🐾 ペットメモリアル そら｜吉地 亜木子</div>
+    <div>神戸市／阪神エリアを中心に対応</div>
+    <div>📞 090-7899-0287 ✉️ aki07511@gmail.com</div>
+    <div class="footer-copy">© 2025 ペットメモリアル そら. All Rights Reserved.</div>
+  </footer>
+
+  <!-- FLOATING CONTACT BUTTONS -->
+  <div class="float-contact">
+    <a href="tel:090-7899-0287" class="float-btn">📞 電話する</a>
+    <a href="mailto:aki07511@gmail.com" class="float-btn line">💬 LINEで相談</a>
+  </div>
+
+  <script>
+    // Scroll fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // FAQ accordion
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // Staggered card animation
+    document.querySelectorAll('.service-card, .qual-badge, .contact-card').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.1}s`;
+    });
+  </script>
+</body>
+</html>
