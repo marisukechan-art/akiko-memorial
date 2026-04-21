@@ -791,28 +791,18 @@
     }
 
     .staff-photos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
       flex-shrink: 0;
-      width: 380px;
+      width: 340px;
     }
 
     .staff-photos img {
       width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
       transition: transform 0.3s;
     }
 
     .staff-photos img:hover { transform: scale(1.02); }
-
-    .staff-photos img:first-child {
-      grid-column: 1 / -1;
-      aspect-ratio: 4/3;
-    }
 
     .staff-info {
       flex: 1;
@@ -1744,9 +1734,7 @@
     <div class="staff-inner">
       <div class="staff-card fade-in">
         <div class="staff-photos">
-          <img src="staff2.jpg.jpeg" alt="吉地亜木子">
-          <img src="staff1.jpg.jpeg" alt="吉地亜木子">
-          <img src="staff3.jpg.jpeg" alt="吉地亜木子">
+          <img src="IMG_3750.PNG" alt="吉地亜木子">
         </div>
         <div class="staff-info">
           <p class="staff-name-ruby">よしじ　あきこ</p>
